@@ -12,8 +12,8 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 400;
 
         color-scheme: light dark;
-        color: ${hexToHexWithAlpha(colors.white, 87)};
-        background-color: ${colors.black};
+        color: ${colors.black};
+        background-color: ${hexToHexWithAlpha(colors.white, 87)};
 
         font-synthesis: none;
         text-rendering: optimizeLegibility;
@@ -61,10 +61,6 @@ const GlobalStyle = createGlobalStyle`
     }
 
     @media (prefers-color-scheme: light) {
-        :root {
-            color: ${colors.black};
-            background-color: ${hexToHexWithAlpha(colors.white, 87)};
-        }
         a:hover {
             color: #747bff;
         }
