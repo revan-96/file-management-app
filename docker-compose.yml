@@ -1,0 +1,26 @@
+services:
+  db:
+    build:
+      context: ./db           
+      dockerfile: Dockerfile  
+    container_name: db_container
+    ports:
+      - "27017:27017"
+    networks:
+      - my_network
+  server:
+    build:
+      dockerfile: Dockerfile  
+    container_name: server_container
+    environment:
+      - DB_HOST=db_container
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
